@@ -1,0 +1,42 @@
+<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;background:transparent}svg{display:block}</style></head><body>
+<svg width="600" height="600" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<defs>
+ <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0" stop-color="#e9e3cf"/><stop offset=".45" stop-color="#f3ddb0"/><stop offset=".62" stop-color="#f6c77e"/><stop offset=".7" stop-color="#f3b866"/>
+ </linearGradient>
+ <radialGradient id="glow" cx="100" cy="118" r="70" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff2c6" stop-opacity=".95"/><stop offset=".35" stop-color="#ffd98c" stop-opacity=".55"/><stop offset="1" stop-color="#ffd98c" stop-opacity="0"/></radialGradient>
+ <linearGradient id="far" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9aa6b4"/><stop offset="1" stop-color="#b8b9a8"/></linearGradient>
+ <linearGradient id="hillL" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8fb25e"/><stop offset="1" stop-color="#5f8a3c"/></linearGradient>
+ <linearGradient id="hillR" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9dbb63"/><stop offset="1" stop-color="#6a9443"/></linearGradient>
+ <linearGradient id="front" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7fa34c"/><stop offset="1" stop-color="#3f6a2c"/></linearGradient>
+ <linearGradient id="path" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#efe3c4"/><stop offset="1" stop-color="#f7e7bd"/></linearGradient>
+ <filter id="paint" x="0" y="0" width="100%" height="100%">
+  <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="7" result="n"/>
+  <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .10 0" result="g"/>
+  <feComposite in="g" in2="SourceGraphic" operator="in" result="gc"/>
+  <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="gc"/></feMerge>
+ </filter>
+ <filter id="soft"><feGaussianBlur stdDeviation=".8"/></filter>
+ <filter id="sh" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity=".35"/></filter>
+ <clipPath id="c"><circle cx="100" cy="100" r="80"/></clipPath>
+</defs>
+<circle cx="100" cy="100" r="96" fill="#1f3d27" filter="url(#sh)"/>
+<g clip-path="url(#c)" filter="url(#paint)">
+ <rect width="200" height="200" fill="url(#sky)"/>
+ <g filter="url(#soft)" opacity=".6" fill="#fbf1dc">
+  <ellipse cx="62" cy="58" rx="30" ry="5"/><ellipse cx="140" cy="48" rx="26" ry="4"/><ellipse cx="120" cy="74" rx="34" ry="4.5"/>
+ </g>
+ <rect width="200" height="200" fill="url(#glow)"/>
+ <path d="M10 118 C40 104 70 106 92 114 C118 104 150 102 190 114 V140 H10Z" fill="url(#far)" filter="url(#soft)" opacity=".85"/>
+ <circle cx="100" cy="117" r="11" fill="#ffd06a"/>
+ <circle cx="100" cy="117" r="11" fill="#fff0bd" opacity=".45" filter="url(#soft)"/>
+ <path d="M10 124 C40 112 70 114 96 124 L96 200 H10Z" fill="url(#hillL)"/>
+ <path d="M104 124 C130 114 160 112 190 120 V200 H104Z" fill="url(#hillR)"/>
+ <path d="M10 134 C50 120 80 122 100 125 C120 122 150 120 190 132 V200 H10Z" fill="url(#front)"/>
+ <path d="M100 125 C104 131 112 135 108 142 C102 151 86 154 88 164 C90 174 104 178 100 196 L114 196 C118 180 104 172 104 164 C104 156 118 152 120 144 C122 136 110 130 102 125Z" fill="url(#path)" opacity=".95"/>
+ <g stroke="#3d6a2a" stroke-width=".8" stroke-linecap="round" opacity=".55">
+  <path d="M40 170 l-2 -9"/><path d="M44 172 l1 -10"/><path d="M60 182 l-2 -9"/><path d="M140 168 l2 -9"/><path d="M146 176 l-1 -10"/><path d="M158 184 l2 -9"/><path d="M72 160 l1 -7"/><path d="M130 158 l-1 -7"/>
+ </g>
+</g>
+<circle cx="100" cy="100" r="80.8" fill="none" stroke="#f3e6c6" stroke-width="1.4" opacity=".85"/>
+</svg></body></html>
