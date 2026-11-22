@@ -22,6 +22,7 @@ SITE_URL = "https://beloved-meadow.github.io"  # e.g. "https://www.belovedmeadow
 # "/belovedmeadow/" for a GitHub Pages project repo called belovedmeadow.
 BASE_PATH = "/"
 FILM_URL = "https://www.youtube.com/watch?v=0sQ-YYJqn94"
+DONATE_URL = "https://pay.sumup.com/b2c/QLSXVJOM"
 
 PAGES = [
     # (source, output, title, description, nav)
@@ -97,6 +98,10 @@ PAGES = [
      "Page not found — Beloved Meadow",
      "This page could not be found. Start with Meet Jesus or the home page.",
      "none"),
+    ("give.html", "give/index.html",
+     "Give — Beloved Meadow",
+     "Help more children meet Jesus. Your gift keeps Beloved Meadow’s readings, family guides and Sunday school sessions free.",
+     "give"),
     ("about.html", "about/index.html",
      "About Beloved Meadow — what we believe and why we exist",
      "Beloved Meadow helps children get to know Jesus, grow to love him and discover that they can talk to God honestly.",
@@ -109,6 +114,7 @@ NAV = [
     ("families", "families/", "For Families"),
     ("churches", "churches/", "For Churches"),
     ("about", "about/", "About"),
+    ("give", "give/", "Give"),
 ]
 
 LOGO = """<svg viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="19" fill="#f9e9cf"/><circle cx="20" cy="17" r="7" fill="#e7b552"/><path d="M1.5 25c6-4 12-5 18.5-2.5S32 27 38.5 23.5V27a19 19 0 0 1-37 0z" fill="#2c6249"/><path d="M3.6 30c5.5-2.6 11-3 16.4-1.2S30.6 31.6 36.4 30A19 19 0 0 1 3.6 30z" fill="#1f4a36"/></svg>"""
@@ -160,6 +166,7 @@ TEMPLATE = """<!doctype html>
         <li><a href="{r}families/">For Families</a></li>
         <li><a href="{r}churches/">For Churches</a></li>
         <li><a href="{r}about/">About</a></li>
+        <li><a href="{r}give/">Give</a></li>
       </ul>
     </div>
     <div>
@@ -186,7 +193,7 @@ def build():
         if out == "404.html":
             r = BASE_PATH  # served at any path, so use absolute links
         body = (SRC / src).read_text(encoding="utf-8")
-        body = body.replace("{r}", r).replace("{film}", FILM_URL)
+        body = body.replace("{r}", r).replace("{film}", FILM_URL).replace("{donate}", DONATE_URL)
         def current(key, href):
             if key != nav_key:
                 return ""

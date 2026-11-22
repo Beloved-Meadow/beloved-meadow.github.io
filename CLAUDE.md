@@ -5,6 +5,7 @@ Beloved Meadow helps children get to know Jesus, grow to love him, and discover 
 ## Project layout
 - `src/pages/*.html` — page bodies (no `<head>`). `{r}` = relative root, `{film}` = film URL.
 - `build.py` — the `PAGES` list (source, output path, title, description, nav) + shared template. Run `python3 build.py` → writes `site/`.
+- `data/web/` — World English Bible (public domain): Matthew, Mark, Luke, John, Acts. Read via `tools/verses.py`.
 - `site/` — build output, **never edit by hand** and never commit (GitHub Actions builds it).
 - The paid Family Conversation Pack is **not** in this repo and must never be added.
 
@@ -13,7 +14,7 @@ Open **one pull request per week** with exactly one new reading. Never push to `
 
 1. Read `src/pages/meet-jesus.html` and every existing `src/pages/reading-*.html` first. Do not repeat a passage or a question already covered.
 2. Pick a passage from the Gospels (or one that clearly shows Jesus) and a real question a child asks. Prefer moments where Jesus *does* something.
-3. Fetch the exact World English Bible text: `curl -s "https://bible-api.com/<book>+<ch>:<v>-<v>?translation=web"`. Quote it **verbatim**, keep verse numbers as `<sup>`. Never quote from memory.
+3. Get the exact World English Bible text from the repo (no network needed): `python3 tools/verses.py "John 11:32-35" --html`. The four Gospels and Acts are in `data/web/`. Quote it **verbatim**, keep verse numbers as `<sup>`. Never quote from memory. If a passage outside these books is needed, choose a different passage.
 4. Create `src/pages/reading-N.html` by copying the structure of the latest reading:
    - header: `Meet Jesus · Reading N of N`, `h1` = the child's question, meta (reference, "About 3 minutes aloud", "For children of every age"), print button
    - **A moment you might know** — a concrete everyday moment a child recognises
