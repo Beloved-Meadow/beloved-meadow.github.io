@@ -83,7 +83,7 @@ PAGES = [
      "A three-minute reading for children: Jesus promises to prepare a place and come again.",
      "meet"),
     ("reading-13.html", "meet-jesus/what-if-i-cant-get-to-jesus/index.html",
-     "What if I can’t get to Jesus on my own? A reading on Mark 2 — Beloved Meadow",
+     "What if I can’t get to Jesus on my own? Mark 2 — Beloved Meadow",
      "A three-minute reading for children: four friends carry a man to Jesus through the roof, and Jesus forgives him.",
      "meet"),
     ("families.html", "families/index.html",
